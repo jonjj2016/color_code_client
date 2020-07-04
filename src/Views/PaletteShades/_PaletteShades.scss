@@ -1,0 +1,25 @@
+.PaletteShades {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    .Palette-colors {
+        height: 96%;
+        display: flex;
+    }
+}
+
+.go_back {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+}
+
+.myLink {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}

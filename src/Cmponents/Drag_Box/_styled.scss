@@ -1,0 +1,99 @@
+.box {
+    width: 102%;
+    position: relative;
+    overflow: hidden;
+    margin-right: -2px;
+}
+
+.dragable_box {
+    height: 100%;
+    border-radius: 0;
+    margin: 0;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+}
+
+.dragable_box_content {
+    position: absolute;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    .title {
+        font-size: 2rem;
+        padding: 3rem 1rem;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 500;
+        padding-bottom: 3rem;
+    }
+    .content {
+        // background-color: rgba(0, 0, 0, 0.5);
+        min-width: 5vw;
+        max-width: 5vw;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        .icon {
+            width: 100%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            height: 4rem;
+            font-weight: 300;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scale: 0;
+            opacity: 0;
+            transition: 500ms;
+        }
+    }
+    &:hover .content .icon {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .box {
+        // padding: 4rem 2rem;
+        height: 40vh;
+        // padding: 0 1rem;
+        .content {
+            height: 60%;
+            .icon {
+                height: 3rem;
+            }
+        }
+        .title {
+            font-size: 1.5rem;
+            padding: 1rem 1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .box {
+        // padding: 4rem 2rem;
+        height: 48vh;
+        // padding: 0 1rem;
+        .content {
+            height: 70%;
+            .icon {
+                height: 3.5rem;
+            }
+        }
+        .title {
+            font-size: 1.5rem;
+            padding: 1.5rem 1rem;
+        }
+    }
+}

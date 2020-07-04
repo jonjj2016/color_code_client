@@ -1,0 +1,97 @@
+#colorPicker_container {
+    width: 30vw;
+    max-width: 450px;
+    min-width: 350px;
+    position: absolute;
+    z-index: 20;
+    top: 10%;
+    left: 35%;
+    padding: 0.5rem;
+    //max-height: 50vh;
+    overflow-x: hidden;
+    #sketchPicker {
+        width: 100%;
+    }
+    #picker_menu {
+        height: 20rem;
+        overflow-x: hidden;
+        .item {
+            height: 20%;
+        }
+    }
+    .picker_controller {
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        border-top: 1px solid #999;
+        height: 5rem;
+    }
+    #color-picker-palette {
+        position: absolute;
+        z-index: 100;
+        width: 500px;
+    }
+    .color-picker-cover {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0px;
+        bottom: 0px;
+    }
+    .chrome-picker {
+        width: 100% !important;
+        // max-height: 30vh;
+        overflow: hidden;
+        margin: 0 auto;
+        // max-height: 300px;
+        // min-height: 300px;
+        // overflow: hidden;
+        .saturation-white {
+            height: 100%;
+        }
+    }
+}
+
+.huePickerSegment {
+    .hue-picker {
+        margin: 1rem auto;
+        margin-bottom: 2rem;
+        width: 100% !important;
+        .hue-horizontal {
+            border-radius: 20px !important;
+        }
+    }
+}
+
+.picker_Saturation {
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto;
+    margin-bottom: 2rem;
+    padding-left: 0.3rem;
+    // justify-content: center;
+    align-items: center;
+    div {
+        align-self: flex-start;
+    }
+    .rc-slider {
+        padding-bottom: 2rem;
+        width: 100%;
+        margin-top: 1rem;
+        .rc-slider-rail {
+            background-color: #b4ccff;
+            height: 15px;
+            width: 100%;
+        }
+        .rc-slider-track {
+            height: 15px;
+            background-color: #ff5400;
+        }
+        .rc-slider-handle {
+            height: 22px;
+            width: 22px;
+        }
+    }
+}

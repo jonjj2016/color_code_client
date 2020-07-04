@@ -1,0 +1,28 @@
+.dragable_list {
+    display: flex;
+    height: 96vh;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+    .dragable_list {
+        padding: 1rem .4rem;
+        height: 95vh;
+        overflow: scroll;
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .dragable_list {
+        // padding: 4rem 2rem;
+        height: 95vh;
+        overflow: scroll;
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}

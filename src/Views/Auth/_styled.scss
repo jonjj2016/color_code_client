@@ -1,0 +1,37 @@
+.login {
+    position: relative;
+    z-index: 10000;
+    h1.header {
+        font-size: 3rem;
+    }
+    p {
+        color: #777;
+        font-size: 2rem;
+    }
+    .segment {
+        border: none;
+        box-shadow: none;
+        border: none;
+        box-shadow: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        form {
+            margin-top: 3rem;
+            width: 80%;
+            span {
+                color: #2196F3;
+                margin: 0 .5rem;
+                cursor: pointer;
+                &:hover {
+                    transition: 500ms;
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+.myForm {}

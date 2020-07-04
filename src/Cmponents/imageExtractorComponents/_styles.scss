@@ -1,0 +1,51 @@
+.miniImage {
+    background-size: cover;
+    height: 10rem;
+    width: 15rem;
+    border-radius: 10px;
+    //display: inline-block;
+    padding: 0;
+    margin: .1rem;
+    cursor: pointer;
+}
+
+.smallImageInfo {
+    min-height: 3rem;
+    font-size: 1.2rem;
+    color: #eee;
+    // word-spacing: 4px;
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 1rem;
+    text-transform: uppercase;
+    background-color: #222;
+    line-height: 2;
+}
+
+.smallimageGallery {
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    //background-color: #eee;
+    min-height: 55vh;
+    // overflow: scroll;
+    // overflow-x: hidden;
+}
+
+.shade_box {
+    height: 2rem;
+    width: 100%;
+    border-radius: 0;
+    margin: 0;
+    overflow-x: hidden;
+    border: none;
+    &:hover {
+        transition: 500ms;
+        cursor: pointer;
+        scale: 1.5;
+        transform-origin: bottom;
+        // height: 3.5rem;
+        // transform: scaleY(1.3);
+    }
+}

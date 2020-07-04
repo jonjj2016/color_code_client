@@ -1,0 +1,14 @@
+.myModal {
+    z-index: 10000;
+    .content {
+        .description {
+            margin-left: 3rem;
+            .input {
+                margin: 6rem 0 2rem;
+            }
+            .button {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

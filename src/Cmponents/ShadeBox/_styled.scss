@@ -1,0 +1,24 @@
+.shadeBox {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transform-origin: bottom;
+    span {
+        opacity: 0;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 3px;
+    }
+    &:hover {
+        transition: 500ms;
+        //  scale: 2;
+        span {
+            // transition: 200ms;
+            opacity: 1;
+        }
+    }
+}

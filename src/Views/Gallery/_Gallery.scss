@@ -1,0 +1,40 @@
+.miniPlette {
+    padding: 2rem;
+    height: 95vh;
+    width: 100vw;
+    //  padding-top: 7vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+}
+
+.gallery_sidebar {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    span {
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+    .item {
+        color: #888;
+        transition: 400ms;
+        &:hover {
+            color: #333;
+        }
+        min-height: 8rem;
+        display: flex;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #666;
+        padding: 1rem;
+        box-sizing: border-box;
+        .icon {
+            font-size: 2rem;
+        }
+    }
+}
