@@ -2,6 +2,7 @@
     height: 95vh;
     // margin-top: 5vh;
     display: flex;
+    flex-direction: column;
     // display: grid;
     // align-items: center;
     // grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -9,6 +10,52 @@
         height: 100%;
         display: flex
     }
+    @media screen and (max-width: 800px) {
+        overflow-y: scroll;
+    }
+    h2 {
+        text-align: center;
+        color: #666;
+        font-weight: 900;
+    }
+    .userInfo {
+        display: flex;
+        min-height: 5rem;
+        width: 100%;
+        justify-content: space-between;
+        box-sizing: border-box;
+        background-color: #000;
+        color: #eee;
+        margin-bottom: 2rem;
+        font-size: 1.2rem;
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+        }
+        .field {
+            border-left: 2px solid #eee;
+            text-align: center;
+            line-height: 1;
+            width: 100%;
+            letter-spacing: 1px;
+            @media screen and (max-width: 800px) {
+                border-left: none;
+                border-top: 2px solid #eee;
+                span {
+                    display: inline-block;
+                    padding-bottom: 2rem;
+                }
+            }
+            br {
+                margin: 1rem 0;
+            }
+            span {
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-weight: bold;
+            }
+        }
+    }
+    ;
     .overlay {
         position: absolute;
         height: 100%;

@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import './_styled.scss';
 import { actions } from '../../Modules/Auth/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, Grid, Button, Icon } from 'semantic-ui-react';
 import { useHistory } from 'react-router-dom';
 import { actions as editModalActions, add_palette_mode } from '../../Modules/Pallete/actions';
+import UserSlider from '../../Cmponents/User_Slider/User_Slider';
 
 const UserPage = () => {
   const history = useHistory();
@@ -13,15 +13,26 @@ const UserPage = () => {
     dispatch(actions.reauthenticate_start());
   }, []);
   const { user, loading } = useSelector((state) => state.logs);
-  console.log('huhuhu');
   const renderer = () => {
     if (!loading && user) {
       return (
-        <div>
-          <div>Name:{user.name}</div>
-          <div>Email: {user.email}</div>
-          <div>MyPalettes: {user.own_palettes.length}</div>
-          <div>Liked Palettes: {user.liked_palettes.length}</div>
+        <div className='userInfo'>
+          <div className='field name'>
+            Name: <br />
+            <span>{user.name}</span>
+          </div>
+          <div className='email field'>
+            Email: <br /> <span>{user.email}</span>
+          </div>
+          <div className='myPalettes field'>
+            MyPalettes:
+            <br /> <span> {user.own_palettes.length}</span>
+          </div>
+          <div className='copiedPaletted field'>
+            Liked Palettes:
+            <br />
+            <span> {user.liked_palettes.length}</span>
+          </div>
         </div>
       );
     }
@@ -40,56 +51,79 @@ const UserPage = () => {
   //     },
   //   };
   const onDelete = (id) => {
-    // dispatch(actions.remove_start());
+    // dispatch(actions.remove_start(id));
   };
   const onEdit = (id) => {
-    dispatch(add_palette_mode('edit'));
-    history.push(`/compose_palette/${id}`);
+    // dispatch(add_palette_mode('edit'));
+    // history.push(`/compose_palette/${id}`);
   };
   const onViewPalette = (id) => {
-    alert('view ' + id);
+    // alert('view ' + id);
   };
+  const settings = {
+    dots: true,
+    infinite: false,
+    autoplay: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    rows: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  const onDeleteFromUser = (id) => {};
 
-  const renderPalettes = () => {
+  const renderLikedPalettes = () => {
+    console.log(user);
+
     if (!loading && user) {
-      const palettes = [...user.own_palettes, ...user.liked_palettes];
-      console.log(palettes);
-
-      return (
-        <Card.Group style={{ width: '100%', margin: '1rem' }} itemsPerRow={3}>
-          {palettes.map((item, index) => {
-            return (
-              <Card style={{ margin: '2rem auto', height: '250px', boxSizing: 'border-box', overflow: 'hidden' }} key={index}>
-                <div className='overlay'>
-                  <span onClick={() => onEdit(item._id)} class='ui left corner label '>
-                    <Icon secondary name='pencil alternate' />
-                  </span>
-                  <span onClick={() => onDelete(item._id)} class='ui right corner label'>
-                    <Icon name='trash' />
-                  </span>
-                  <Button onClick={() => onViewPalette(item._id)} secondary>
-                    More
-                  </Button>
-                </div>
-                <div className='box'>
-                  {item.colors.map((color, index) => {
-                    return <div key={index} style={{ backgroundColor: color.color, width: '100%', height: '100%' }}></div>;
-                  })}
-                </div>
-              </Card>
-            );
-          })}
-        </Card.Group>
-      );
+      return <UserSlider palettesType='copied' palettes={user.liked_palettes} onDeleteFromUser={onDeleteFromUser} onViewPalette={onViewPalette} />;
+    }
+  };
+  const renderOwndPalettes = () => {
+    if (!loading && user) {
+      return <UserSlider palettesType='own' onEdit={onEdit} onDelete={onDelete} palettes={user.own_palettes} onDeleteFromUser={onDeleteFromUser} onViewPalette={onViewPalette} />;
     }
   };
   return (
     <div className='user_container'>
-      <div className='userInfo'>{renderer()}</div>
+      <div>{renderer()}</div>
+      <div>
+        <h2>Created Palettes</h2>
+        {renderOwndPalettes()}
+      </div>
+      <div>
+        <h2>Copied Palettes</h2>
 
-      {renderPalettes()}
+        {renderLikedPalettes()}
+      </div>
     </div>
   );
 };
-
+//palettes, onDeleteFromUser, onViewPalette, onEdit, onDelete, palettesType
 export default UserPage;

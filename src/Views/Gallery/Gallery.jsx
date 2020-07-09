@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 import './_Gallery.scss';
-// import { Link } from 'react-router-dom';
-// import Slider from '../../Cmponents/Sider/Slider.Container';
-// import MiniPalett from '../../Cmponents/MiniPalette/MiniPalette';
 import { Card } from 'semantic-ui-react';
-// import MySideBar from '../../Cmponents/Sidebar/SlideBar.Containrer';
-// import MyMenu from '../../Cmponents/Menu/Menu.Container';
 import NewMiniPalette from '../../Cmponents/NewMiniPalette/Containter';
-// import Controller from '../../Cmponents/Controller/Container';
-// import { MiniPaletteGallery } from '../../Cmponents/NewMiniPalette/styled';
 import { useWindowSize } from '../../Hooks/windowSize';
 
 const Gallery = ({ palettes }) => {
   const size = useWindowSize();
+
   const [state, setState] = useState({
     pickerDirection: 'vertical',
     form: ['square', 'circle', 'horizontal', 'vertical'],
   });
-
+  const changeSize = () => {
+    if (size.width > 900 && size.width <= 1100) return 2;
+    if (size.width <= 900) return 1;
+    return 3;
+  };
   const renderer = () => {
     return (
-      <Card.Group itemsPerRow={3}>
+      <Card.Group itemsPerRow={changeSize()}>
         {palettes.map((palette, index) => {
           return <NewMiniPalette direction={state.pickerDirection} palette={palette} key={index} />;
         })}
