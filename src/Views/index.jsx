@@ -9,6 +9,7 @@ import GradientGenerator from './GradienGenerator/Container';
 import AuthModal from './Auth/Container';
 import TopMenu from '../Cmponents/MainMenu/MainMenu';
 import CopyModal from '../Cmponents/Copy_Modal/CopyModal';
+import UserPage from '../Views/UserPage/UserPage';
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
         <Route path='/extract_colors' exact component={PaletteExtractor} />
         <Route path='/generate_gradient/:paletteId' exact component={GradientGenerator} />
         <Route path='/generate_gradient' exact component={GradientGenerator} />
+        <Route path='/my_page' exact component={UserPage} />
         <Route path='/' exact component={Gallery} />
       </Switch>
     </div>

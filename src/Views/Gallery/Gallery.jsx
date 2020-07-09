@@ -20,7 +20,7 @@ const Gallery = ({ palettes }) => {
 
   const renderer = () => {
     return (
-      <Card.Group itemsPerRow={4}>
+      <Card.Group itemsPerRow={3}>
         {palettes.map((palette, index) => {
           return <NewMiniPalette direction={state.pickerDirection} palette={palette} key={index} />;
         })}

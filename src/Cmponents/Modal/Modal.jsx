@@ -9,9 +9,7 @@ const MyModal = ({ onSavePalette, state, onChange, onEdit }) => {
   const dispatch = useDispatch();
   const { save_palette_modal_open: isOpen } = useSelector((state) => state.auxModals);
   const { mode } = useSelector((state) => state.paletteReducer);
-  console.log(mode);
 
-  //const [open, setOpen] = useState(false);
   const setPaletteName = () => {
     if (mode === 'edit') return state.newPaletteName;
     return '';
@@ -19,7 +17,6 @@ const MyModal = ({ onSavePalette, state, onChange, onEdit }) => {
 
   const palette = {
     paletteName: state.newPaletteName,
-    // paletteName: setPaletteName(),
     colors: state.colors,
   };
 
@@ -28,8 +25,6 @@ const MyModal = ({ onSavePalette, state, onChange, onEdit }) => {
     if (mode === 'edit') {
       onEdit(palette);
     } else {
-      console.log(palette);
-
       onSavePalette(palette);
     }
   };

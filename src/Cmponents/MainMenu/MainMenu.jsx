@@ -52,10 +52,13 @@ const MainMenu = () => {
         <Popup offset='-10px, 10px' on='click' open={state.isOpen} position='bottom left' trigger={<Icon name='sliders horizontal' />}>
           <Popup.Content>
             <Menu vertical>
+              {/* <NavLink to='/'>
+                <Menu.Item name='inbox' active={state.activeItem === 'inbox'}>
+                  <Icon size='large' name='compass' />
+                  Home
+                </Menu.Item>
+              </NavLink> */}
               <NavLink to='/'>
-                {/* <Menu.Item>
-                <img src={log} />
-              </Menu.Item> */}
                 <Menu.Item name='inbox' active={state.activeItem === 'inbox'}>
                   <Icon size='large' name='compass' />
                   Home
@@ -86,9 +89,11 @@ const MainMenu = () => {
       <Menu.Menu position='right'>
         {authenticated && user ? (
           <React.Fragment>
-            <Menu.Item header icon>
-              Hi {user.name.toUpperCase()}
-            </Menu.Item>
+            <NavLink to='/my_page'>
+              <Menu.Item header icon style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+                Hi <span style={{ marginLeft: '.6rem', color: 'red' }}>{user.name.toUpperCase()}</span>
+              </Menu.Item>
+            </NavLink>
             <Menu.Item header onClick={signOut}>
               <Icon size='large' name='sign-out' />
             </Menu.Item>

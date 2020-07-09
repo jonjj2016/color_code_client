@@ -2,7 +2,7 @@ import feathers from '@feathersjs/feathers';
 import axios from 'axios';
 import rest from '@feathersjs/rest-client';
 import auth from '@feathersjs/authentication-client';
-const HOST = 'http://localhost:3030';
+const HOST = 'https://colorcode2020.herokuapp.com';
 
 export const client = feathers()
   .configure(rest(HOST).axios(axios))
