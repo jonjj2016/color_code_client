@@ -44,7 +44,7 @@ const myPalette = {
   ],
 };
 
-const SinglePalette = ({ palette, onOpenExtractorModal }) => {
+const SinglePalette = ({ authenticated, palette, onOpenExtractorModal }) => {
   const [state, setState] = useState({ activeItem: 'upload image', colors: myPalette.colors, paletteName: '', newPaletteName: '' });
 
   const dispatch = useDispatch();
@@ -73,9 +73,11 @@ const SinglePalette = ({ palette, onOpenExtractorModal }) => {
   };
   const render = () => (
     <div>
-      <Button icon secondary onClick={onModalOpen} style={{ position: 'absolute', zIndex: 5, right: '-3px', top: '20%', borderRadius: '5px 0 0 5px' }}>
-        <Icon name='save' size='big' />
-      </Button>
+      {authenticated && (
+        <Button icon secondary onClick={onModalOpen} style={{ position: 'absolute', zIndex: 5, right: '-3px', top: '20%', borderRadius: '5px 0 0 5px' }}>
+          <Icon name='save' size='big' />
+        </Button>
+      )}
       <Button onClick={onOpenExtractorModal} secondary icon style={{ position: 'absolute', right: '-3px', top: '50%', zIndex: 20, borderRadius: '5px 0 0 5px' }}>
         <Icon name='retro camera' size='big' />
       </Button>

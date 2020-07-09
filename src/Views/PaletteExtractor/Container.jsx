@@ -7,6 +7,7 @@ import { actions as modalActions } from '../../Modules/AuxModals/actions';
 const Container = () => {
   const dispatch = useDispatch();
   const { palette, loading, palettes } = useSelector((state) => state.paletteReducer);
+  const { authenticated } = useSelector((state) => state.logs);
   const { colors } = useSelector((state) => state.unsplashImages);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const Container = () => {
   const onOpenExtractorModal = () => {
     dispatch(modalActions.extractor_modal_open());
   };
-  return <Component onOpenExtractorModal={onOpenExtractorModal} palette={colors} />;
+  return <Component authenticated={authenticated} onOpenExtractorModal={onOpenExtractorModal} palette={colors} />;
 };
 
 export default Container;
