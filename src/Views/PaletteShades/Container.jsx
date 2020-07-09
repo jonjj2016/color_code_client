@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../../Modules/Pallete/actions';
 import { gatherShades } from '../../Helpers/ColorHelpers';
 import { paletteGenerator } from '../../Helpers/ColorHelpers';
+import Spinner from '../../Cmponents/Spinner/Spinner';
 
 const Container = () => {
   const { paletteId, colorId } = useParams();
@@ -22,7 +23,7 @@ const Container = () => {
     if (palette && !loading) {
       return <Component palette={shade} color={colorId} />;
     } else {
-      return <h1>Loading...</h1>;
+      return <Spinner />;
     }
   };
   return <React.Fragment>{renderer()}</React.Fragment>;

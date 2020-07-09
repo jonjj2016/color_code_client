@@ -11,9 +11,11 @@ const Gallery = ({ palettes }) => {
     pickerDirection: 'vertical',
     form: ['square', 'circle', 'horizontal', 'vertical'],
   });
+
   const changeSize = () => {
     if (size.width > 900 && size.width <= 1100) return 2;
     if (size.width <= 900) return 1;
+    if (size.width >= 1500) return 4;
     return 3;
   };
   const renderer = () => {

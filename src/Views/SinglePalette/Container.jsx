@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Component from './SinglePalette';
+import Spinner from '../../Cmponents/Spinner/Spinner';
 import { actions, add_palette_mode } from '../../Modules/Pallete/actions';
 
 const Container = () => {
@@ -41,7 +42,7 @@ const Container = () => {
 
   const renderer = () => {
     if (loading || !palette) {
-      return <h1>Loading ....</h1>;
+      return <Spinner />;
     } else {
       return <Component own_palettes={own_palettes} role={role} liked_palettes={liked_palettes} controllers={controllers} palette={palette} />;
     }
