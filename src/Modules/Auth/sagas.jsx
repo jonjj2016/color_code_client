@@ -7,11 +7,12 @@ import localStorage from 'redux-persist/es/storage';
 
 function* on_patch_user({ payload }) {
   const { id, data } = payload;
+  console.log(payload);
   try {
     yield put(actions.loading());
     const res = yield client.patch(id, { liked_palettes: data });
-    yield put(actions.patch_success(res));
-    console.log(res);
+
+    yield put(actions.patch_success(payload));
   } catch (err) {
     yield put(actions.patch_failed(err));
   }

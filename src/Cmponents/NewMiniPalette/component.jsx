@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from 'semantic-ui-react';
 import './_MiniPalette.scss';
 import { Icon } from 'semantic-ui-react';
@@ -12,9 +12,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const MiniPalette = ({ modal, palette, direction, formodal, micro, onPickDirection }) => {
   const history = useHistory();
+  const [state, setState] = useState({
+    user: null,
+  });
+
   const { authenticated, user } = useSelector((state) => state.logs);
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    setState({ ...state, user: user });
+  }, [user.liked_palettes.length]);
   const onClick = () => {
     if (micro) {
       onPickDirection(direction);
@@ -71,7 +77,7 @@ const MiniPalette = ({ modal, palette, direction, formodal, micro, onPickDirecti
   const onCopyPalette = () => {
     if (authenticated) {
       dispatch(copyModal.copy_modal_open('Have been successfully added to your list'));
-      dispatch(actions.patch_start({ id: user._id, data: [...user.liked_palettes, palette] }));
+      dispatch(actions.patch_start({ id: user._id, data: [...state.user.liked_palettes, palette] }));
     } else {
       dispatch(modalActions.open_start());
     }
@@ -82,10 +88,10 @@ const MiniPalette = ({ modal, palette, direction, formodal, micro, onPickDirecti
       {!micro && !formodal && (
         <Card.Content id='card_content' extra>
           <div className='extra'>
-            <span>
+            {/* <span>
               <Icon name='eye' />
               {palette.downloads} Views
-            </span>
+            </span> */}
             <span onClick={onCopyPalette} style={{ cursor: 'pointer' }}>
               <Icon name='clone outline' />
             </span>

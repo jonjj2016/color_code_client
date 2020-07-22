@@ -29,7 +29,6 @@ const CopyModal = () => {
   return (
     <TransitionablePortal transition={{ animation, duration }} onClose={handleClose} open={isOpen ? true : false}>
       <Segment
-        wide
         inverted
         style={{
           width: '20rem',

@@ -5,10 +5,16 @@ const initState = {
   add_color_modal_open: false,
   save_palette_modal_open: false,
   copy_modal_open: false,
+  user_palette_open: { isOpen: false, data: null },
 };
 
 export default (state = initState, { type, payload }) => {
   switch (type) {
+    case types.USER_PALETTE_OPEN:
+      return { ...state, user_palette_open: { data: payload, isOpen: true } };
+    case types.USER_PALETTE_CLOSE:
+      return { ...state, user_palette_open: { isOpen: false, data: null } };
+
     case types.EXTRACTOR_MODAL_OPEN:
       return { ...state, extractor_modal_open: true };
     case types.EXTRACTOR_MODAL_CLOSE:

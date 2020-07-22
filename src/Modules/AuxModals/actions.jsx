@@ -7,6 +7,8 @@ export const types = {
   SAVE_PALETTE_MODAL_CLOSE: 'SAVE_PALETTE_MODAL_CLOSE',
   COPY_MODAL_OPEN: 'COPY_MODAL_OPEN',
   COPY_MODAL_CLOSE: 'COPY_MODAL_CLOSE',
+  USER_PALETTE_OPEN: 'USER_PALETTE_OPEN',
+  USER_PALETTE_CLOSE: 'USER_PALETTE_CLOSE',
 };
 export const actions = {
   add_color_modal_open: () => ({ type: types.ADD_COLOR_MODAL_OPEN }),
@@ -17,4 +19,6 @@ export const actions = {
   save_palette_modal_close: () => ({ type: types.SAVE_PALETTE_MODAL_CLOSE }),
   copy_modal_open: (val) => ({ type: types.COPY_MODAL_OPEN, payload: val }),
   copy_modal_close: () => ({ type: types.COPY_MODAL_CLOSE }),
+  userPalett_modal_open: (data) => ({ type: types.USER_PALETTE_OPEN, payload: data }),
+  userPalett_modal_close: () => ({ type: types.USER_PALETTE_CLOSE }),
 };

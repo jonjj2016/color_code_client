@@ -10,6 +10,7 @@ import AuthModal from './Auth/Container';
 import TopMenu from '../Cmponents/MainMenu/MainMenu';
 import CopyModal from '../Cmponents/Copy_Modal/CopyModal';
 import UserPage from '../Views/UserPage/UserPage';
+import UserPaletteView from '../Cmponents/userPaletteView/container';
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
       <TopMenu />
       <AuthModal />
       <CopyModal />
+      <UserPaletteView />
       <Switch>
         <Route path='/palette/:paletteId/:colorId' exact component={PaletteShades} />
         <Route path='/palette/:paletteId' exact component={SinglePalette} />
