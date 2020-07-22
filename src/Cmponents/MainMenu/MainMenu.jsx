@@ -52,12 +52,6 @@ const MainMenu = () => {
         <Popup offset='-10px, 10px' on='click' open={state.isOpen} position='bottom left' trigger={<Icon name='sliders horizontal' />}>
           <Popup.Content>
             <Menu vertical>
-              {/* <NavLink to='/'>
-                <Menu.Item name='inbox' active={state.activeItem === 'inbox'}>
-                  <Icon size='large' name='compass' />
-                  Home
-                </Menu.Item>
-              </NavLink> */}
               <NavLink to='/'>
                 <Menu.Item name='inbox' active={state.activeItem === 'inbox'}>
                   <Icon size='large' name='compass' />
@@ -86,7 +80,7 @@ const MainMenu = () => {
           </Popup.Content>
         </Popup>
       </MenuItem>
-      <Menu.Menu position='right'>
+      {/* <Menu.Menu position='right'>
         {authenticated && user ? (
           <React.Fragment>
             <NavLink to='/my_page'>
@@ -103,7 +97,7 @@ const MainMenu = () => {
             <Icon name='user' />
           </Menu.Item>
         )}
-      </Menu.Menu>
+      </Menu.Menu> */}
     </Menu>
   );
 };

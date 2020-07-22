@@ -18,9 +18,9 @@ const MiniPalette = ({ modal, palette, direction, formodal, micro, onPickDirecti
 
   const { authenticated, user } = useSelector((state) => state.logs);
   const dispatch = useDispatch();
-  useEffect(() => {
-    setState({ ...state, user: user });
-  }, [user.liked_palettes.length]);
+  // useEffect(() => {
+  //   setState({ ...state, user: user });
+  // }, [user.liked_palettes.length]);
   const onClick = () => {
     if (micro) {
       onPickDirection(direction);
